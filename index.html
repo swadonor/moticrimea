@@ -30,7 +30,9 @@
     left: 0;
     z-index: 1000; /* Чтобы хедер был выше остальных элементов */
 }
-
+.order-btn {
+    display: none;
+}
 .logo img {
     height: 24px;
     width: 161px;
@@ -307,6 +309,7 @@ body {
         display: block;
         font-size: 24px;
         cursor: pointer;
+        margin-left: 10px;
     }
 
     /* Прячем стандартное меню */
@@ -404,6 +407,17 @@ body {
         padding: 6px 12px;
     }
 }
+    .order-btn {
+        display: block;
+        background: linear-gradient(90deg, #FAB52C 0%, #FFE7B7 100%);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+    }
 
 /* ================== ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (1 карточка в ряд) ================== */
 @media (max-width: 480px) {
@@ -441,6 +455,7 @@ body {
         <div class="logo">
             <img src="logo.svg" alt="Логотип">
         </div>
+  <button class="order-btn">Заказать</button>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <nav class="nav">
             <a href="#">О бренде</a>
