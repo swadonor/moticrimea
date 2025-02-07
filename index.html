@@ -222,11 +222,11 @@ text-align: center;
 }
 
 .catalog-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px; /* Ограничиваем ширину */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряд */
+        gap: 15px; /* Пространство между карточками */
+        width: 100%; /* Даем возможность растягиваться */
+        max-width: none; /* Убираем ограничение ширины */
 }
 
 .catalog-item {
