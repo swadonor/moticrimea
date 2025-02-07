@@ -490,7 +490,7 @@ body {
         <img src="cloudup.svg" class="cloud cloud-up" alt="Cloud Up">
         <img src="cloudown.svg" class="cloud cloud-down" alt="Cloud Down">
         <div class="content">
-            <h1 class="content-title">
+<h1 class="content-title">
     <span>С</span><span>А</span><span>М</span><span>Ы</span><span>Е</span> 
     <span>Н</span><span>Е</span><span>Ж</span><span>Н</span><span>Ы</span><span>Е</span> 
     <br>
@@ -499,13 +499,17 @@ body {
     <span>В</span> 
     <span>К</span><span>Р</span><span>Ы</span><span>М</span><span>У!</span>
 
-
-        <span class="vkusno-wrapper">
-            <img src="vkusno.svg" alt="Вкусно" class="vkusno-svg">
-        </span>
+    <span class="vkusno-wrapper">
+        <img src="vkusno.svg" alt="Вкусно" class="vkusno-svg">
+    </span>
 </h1>
 
-<a href="#" class="button">В КАТАЛОГ</a>
+<!-- Кнопка теперь под заголовком -->
+<div class="catalog-button">
+    <a href="#" class="button">В КАТАЛОГ</a>
+</div>
+
+
 
         </div>
     </div>
@@ -630,34 +634,6 @@ body {
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // 🎯 Анимация заголовка
-    gsap.from(".content h1", { 
-        opacity: 0, 
-        y: -80, 
-        scale: 0.8,
-        rotationX: 60,
-        duration: 1.5, 
-        ease: "power4.out"
-    });
-
-
-    // 🎯 Анимация карточек каталога (с пружиной)
-    gsap.utils.toArray(".catalog-item").forEach((item, index) => {
-        gsap.from(item, {
-            opacity: 0,
-            y: 50,
-            scale: 0.9,
-            rotation: -5,
-            duration: 1.2,
-            ease: "elastic.out(1, 0.5)",
-            delay: index * 0.1,
-            scrollTrigger: {
-                trigger: item,
-                start: "top 80%",
-                toggleActions: "play none none none"
-            }
-        });
-    });
 
     // 🎯 Анимация секции "Про нас"
     gsap.from(".sushi-block", {
@@ -700,15 +676,25 @@ body {
 </script>
 
 <script>
-    gsap.from(".content h1 span", {
+    gsap.from(".content-title span", {
         opacity: 0,
         y: 50,
+        rotation: -10,
         duration: 1.2,
         ease: "power3.out",
-        stagger: 0.1 // Каждая буква появляется с задержкой
+        stagger: 0.08
+    });
+
+    // 🎯 Анимация кнопки "В КАТАЛОГ" (чтобы она появилась ПОСЛЕ заголовка)
+    gsap.from(".catalog-button", {
+        opacity: 0,
+        y: 30,
+        scale: 0.95,
+        duration: 1.2,
+        ease: "back.out(1.7)",
+        delay: 1.5 // Ждет, пока заголовок анимируется
     });
 </script>
-
 
 
 
