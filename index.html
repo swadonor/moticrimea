@@ -479,7 +479,16 @@ body {
         <img src="cloudup.svg" class="cloud cloud-up" alt="Cloud Up">
         <img src="cloudown.svg" class="cloud cloud-down" alt="Cloud Down">
         <div class="content">
-            <h1>САМЫЕ НЕЖНЫЕ МОТИ<br>УЖЕ В КРЫМУ! 
+            <h1 class="content-title">
+    <span>С</span><span>А</span><span>М</span><span>Ы</span><span>Е</span> 
+    <span>Н</span><span>Е</span><span>Ж</span><span>Н</span><span>Ы</span><span>Е</span> 
+    <br>
+    <span>М</span><span>О</span><span>Т</span><span>И</span> 
+    <span>У</span><span>Ж</span><span>Е</span> 
+    <span>В</span> 
+    <span>К</span><span>Р</span><span>Ы</span><span>М</span><span>У!</span>
+
+
         <span class="vkusno-wrapper">
             <img src="vkusno.svg" alt="Вкусно" class="vkusno-svg">
         </span>
@@ -676,6 +685,16 @@ body {
         gsap.to(".order-btn", { scale: 1, duration: 0.3 });
     });
 
+</script>
+
+<script>
+    gsap.from(".content h1 span", {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        ease: "power3.out",
+        stagger: 0.1 // Каждая буква появляется с задержкой
+    });
 </script>
 
 
