@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
@@ -446,11 +448,20 @@ body {
         height: 20px;
     }
 }
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background: #111; /* Темный фон */
+}
 
 
     </style>
 </head>
 <body>
+
+
     <div class="header">
         <div class="logo">
             <img src="logo.svg" alt="Логотип">
@@ -494,7 +505,8 @@ body {
         </span>
 </h1>
 
-            <a href="#" class="button">В КАТАЛОГ</a>
+<a href="#" class="button">В КАТАЛОГ</a>
+
         </div>
     </div>
 <h2 class="sushi-title">Про нас</h2>
@@ -696,6 +708,8 @@ body {
         stagger: 0.1 // Каждая буква появляется с задержкой
     });
 </script>
+
+
 
 
 </body>
