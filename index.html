@@ -246,6 +246,122 @@ text-align: center;
     border-radius: 20px;
 }
 
+/* Общие стили для всех устройств */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+}
+
+/* ================== АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ ================== */
+@media (max-width: 768px) {
+    
+    /* Уменьшаем отступы у заголовков */
+    .sushi-title, .catalog-title {
+        font-size: 30px;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    /* Хедер: переносим меню вниз */
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    /* Уменьшаем размер логотипа */
+    .logo img {
+        height: 30px;
+        width: auto;
+    }
+
+    /* Центрируем текст */
+    .content h1 {
+        font-size: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Кнопка "В каталог" */
+    .button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    /* Суши-блок: одна колонка на мобилке */
+    .sushi-block {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* Вертикальные разделители скрываем */
+    .divider {
+        display: none;
+    }
+
+    /* Каталог: 2 карточки в ряд */
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки вместо 4 */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    /* Уменьшаем карточки каталога */
+    .catalog-item {
+        padding-bottom: 10px;
+    }
+
+    .catalog-item h3 {
+        font-size: 16px;
+    }
+
+    .catalog-item p {
+        font-size: 12px;
+    }
+
+    .price {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+/* ================== АДАПТАЦИЯ ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ЭКРАНОВ ================== */
+@media (max-width: 480px) {
+    
+    .sushi-title, .catalog-title {
+        font-size: 26px;
+    }
+
+    .content h1 {
+        font-size: 24px;
+    }
+
+    .button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    /* Каталог: 1 карточка в ряд на маленьких экранах */
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 
     </style>
