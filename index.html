@@ -35,7 +35,28 @@
     height: 24px;
     width: 161px;
 }
-
+/* Бургер-меню скрыт на ПК */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* Выпадающее меню скрыто */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;
+}
+.mobile-menu.active {
+    display: flex;
+}
 .nav {
     display: flex;
     gap: 100px;
@@ -366,48 +387,32 @@ body {
     }
 
     .catalog-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряд */
+        grid-template-columns: repeat(2, 1fr); /* Две карточки в ряд */
         gap: 10px;
         padding: 10px;
-        max-width: 600px; /* Ограничение ширины */
+        max-width: 500px; /* Ограничение ширины, чтобы уменьшить размер */
     }
 
     .catalog-item {
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 10px;
+        padding: 8px;
     }
 
+
     .catalog-item img {
-        width: 100%;
-        height: auto;
-        border-bottom: 1px solid #eee;
+        width: 90%;
     }
 
     .catalog-item h3 {
-        font-weight: 500;
         font-size: 14px;
-        margin: 10px 0;
     }
 
     .catalog-item p {
         font-size: 12px;
-        color: #777;
-        margin-bottom: 10px;
     }
 
     .price {
-        display: inline-block;
-        background: #FAB52C;
-        color: white;
-        font-weight: 600;
         font-size: 14px;
         padding: 6px 12px;
-        border-radius: 20px;
     }
 }
 
