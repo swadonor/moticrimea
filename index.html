@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <title>Моти Крым</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff;
+        }
+        .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0); /* Прозрачный фон */
+    position: absolute; /* Чтобы он не сдвигал контент вниз */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Чтобы хедер был выше остальных элементов */
+}
+
+.logo img {
+    height: 24px;
+    width: 161px;
+}
+
+.nav {
+    display: flex;
+    gap: 100px;
+    margin-left: 40px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; /* Medium */
+}
+
+
+.cloud-bg {
+    position: relative;
+    width: 100vw; /* Гарантированно на всю ширину экрана */
+    height: 558px; /* Фиксированная высота */
+    background: url('cloud.svg') no-repeat center center;
+    background-size: cover; /* Растянется ровно на весь экран */
+}
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .content h1 {
+                font-size: 60px;
+    width: 1000px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 60; 
+        }
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #FAB52C 0%, #FFE7B7 100%); /* Градиент */
+    color: white; /* Белый текст */
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    top: 50px;
+    border: none;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Эффект наведения */
+.button:hover {
+    background: linear-gradient(90deg, #FFE7B7 0%, #FAB52C 100%);
+}
+
+        .cloud {
+            position: absolute;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        .cloud-left {
+            top: 30%;
+            left: -150px;
+            animation: move-left 20s linear infinite;
+        }
+        .cloud-right {
+            top: 50%;
+            right: -150px;
+            animation: move-right 20s linear infinite;
+        }
+        .cloud-up {
+            top: 5%;
+            left: 100vw;
+            animation: move-left 25s linear infinite; /* Двигается налево медленно */
+        }
+        .cloud-down {
+            bottom: 20%;
+            left: -150px;
+            animation: move-right 25s linear infinite; /* Двигается направо медленно */
+        }
+        @keyframes move-left {
+            from { left: 100vw; }
+            to { left: -150px; }
+        }
+        @keyframes move-right {
+            from { left: -150px; }
+            to { left: 100vw; }
+        }
+.vkusno-wrapper {
+    position: relative; /* Контейнер, чтобы позиционировать SVG */
+    display: inline-block;
+}
+
+.vkusno-svg {
+position: absolute;
+    top: -12px;
+    left: -60px;
+    height: 40px;
+    transform: rotate(-1deg);
+}
+.sushi-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.sushi-item {
+    position: relative;
+    text-align: center;
+    max-width: 250px;
+}
+
+.sushi {
+   max-width: 200px;
+    height: 200px;
+}
+
+.sushi-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: black;
+    margin-top: 10px;
+}
+
+.sushi-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: black;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.divider {
+    height: 270px;
+    width: auto;
+}
+
+.sushi-title {
+text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-top: 70px;
+}
+.catalog-title {
+       text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-top: 70px;
+}
+
+.catalog-container {
+    display: flex;
+    justify-content: center; /* Центрируем каталог */
+    width: 100%;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px; /* Ограничиваем ширину */
+}
+
+.catalog-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 15px;
+}
+
+.catalog-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.catalog-item p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.price {
+    display: inline-block;
+    background: #FAB52C;
+    color: white;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="logo.svg" alt="Логотип">
+        </div>
+        <div class="nav">
+            <a href="#">О бренде</a>
+            <a href="#">Вкусы</a>
+            <a href="#">Программа лояльности</a>
+            <a href="#">Партнерам</a>
+            <a href="#">Контакты</a>
+        </div>
+    </div>
+    <div class="cloud-bg">
+  <img src="cloudleft.svg" class="cloud cloud-left" alt="Cloud Left">
+        <img src="cloudright.svg" class="cloud cloud-right" alt="Cloud Right">
+        <img src="cloudup.svg" class="cloud cloud-up" alt="Cloud Up">
+        <img src="cloudown.svg" class="cloud cloud-down" alt="Cloud Down">
+        <div class="content">
+            <h1>САМЫЕ НЕЖНЫЕ МОТИ<br>УЖЕ В КРЫМУ! 
+        <span class="vkusno-wrapper">
+            <img src="vkusno.svg" alt="Вкусно" class="vkusno-svg">
+        </span>
+</h1>
+
+            <a href="#" class="button">В КАТАЛОГ</a>
+        </div>
+    </div>
+<h2 class="sushi-title">Про нас</h2>
+<div class="sushi-block">
+    <div class="sushi-item">
+        <img src="purple.svg" alt="Purple Sushi" class="sushi">
+        <p class="sushi-text">СВЕЖЕЕ</p>
+        <p class="sushi-description">Мы готовим свежие моти каждый день – нежные, мягкие и тающие во рту</p>
+    </div>
+
+    <img src="palka.svg" alt="Divider" class="divider">
+
+    <div class="sushi-item">
+        <img src="green.svg" alt="Green Sushi" class="sushi">
+        <p class="sushi-text">НАДЁЖНОЕ</p>
+        <p class="sushi-description">Готовим по традиционным, надёжным рецептам, сохраняя аутентичный вкус и качество в каждом моти</p>
+    </div>
+
+    <img src="palka.svg" alt="Divider" class="divider">
+
+    <div class="sushi-item">
+        <img src="pink.svg" alt="Pink Sushi" class="sushi">
+        <p class="sushi-text">С ЛЮБОВЬЮ</p>
+        <p class="sushi-description">С любовью готовим каждый моти, чтобы доставить вам наслаждение гостям и сотрудникам</p>
+    </div>
+</div>
+    <h2 class="catalog-title">Каталог</h2>
+
+    <div class="catalog-container">
+        <div class="catalog-grid">
+            <div class="catalog-item">
+                <img src="catalog/raf-halva.svg" alt="Раф-Халва">
+                <h3>Раф-Халва</h3>
+                <p>1 шт - 230 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/citrus-raf.svg" alt="Цитрусовый Раф">
+                <h3>Цитрусовый Раф</h3>
+                <p>1 шт - 250 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/orange-choco.svg" alt="Апельсиновый Шоколад">
+                <h3>Апельсиновый Шоколад</h3>
+                <p>1 шт - 225 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/snickers.svg" alt="Сникерс">
+                <h3>Сникерс</h3>
+                <p>1 шт - 250 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/vanilla-mandarin.svg" alt="Ваниль-Мандарин">
+                <h3>Ваниль-Мандарин</h3>
+                <p>1 шт - 205 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/dubai-mochi.svg" alt="Дубайские Моти">
+                <h3>Дубайские Моти</h3>
+                <p>1 шт - 230 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/amaretto-apricot.svg" alt="Амаретто-Абрикос">
+                <h3>Амаретто-Абрикос</h3>
+                <p>1 шт - 225 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/pumpkin-latte.svg" alt="Тыквенный Латте">
+                <h3>Тыквенный Латте</h3>
+                <p>1 шт - 250 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/orange-caramel.svg" alt="Апельсиновая карамель">
+                <h3>Апельсиновая карамель</h3>
+                <p>1 шт - 205 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/berry-vanilla.svg" alt="Брусника-Ваниль">
+                <h3>Брусника-Ваниль</h3>
+                <p>1 шт - 230 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/mandarin-bomb.svg" alt="Мандариновая-Бомба">
+                <h3>Мандариновая-Бомба</h3>
+                <p>1 шт - 225 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+
+            <div class="catalog-item">
+                <img src="catalog/mystery-guest.svg" alt="Загадочный Гость">
+                <h3>Загадочный Гость</h3>
+                <p>1 шт - 250 г</p>
+                <span class="price">590 ₽</span>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
