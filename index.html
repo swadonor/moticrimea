@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
@@ -603,6 +606,78 @@ body {
             document.getElementById("mobileMenu").classList.toggle("active");
         }
     </script>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 🎯 Анимация заголовка
+    gsap.from(".content h1", { 
+        opacity: 0, 
+        y: -80, 
+        scale: 0.8,
+        rotationX: 60,
+        duration: 1.5, 
+        ease: "power4.out"
+    });
+
+
+    // 🎯 Анимация карточек каталога (с пружиной)
+    gsap.utils.toArray(".catalog-item").forEach((item, index) => {
+        gsap.from(item, {
+            opacity: 0,
+            y: 50,
+            scale: 0.9,
+            rotation: -5,
+            duration: 1.2,
+            ease: "elastic.out(1, 0.5)",
+            delay: index * 0.1,
+            scrollTrigger: {
+                trigger: item,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // 🎯 Анимация секции "Про нас"
+    gsap.from(".sushi-block", {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1.2,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+            trigger: ".sushi-block",
+            start: "top 75%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    // 🎯 Анимация контактов, партнеров и программы лояльности
+    gsap.utils.toArray(".info-item").forEach((item, index) => {
+        gsap.from(item, {
+            opacity: 0,
+            y: 50,
+            scale: 0.9,
+            duration: 1.2,
+            ease: "back.out(1.7)",
+            delay: index * 0.2,
+            scrollTrigger: {
+                trigger: item,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // 🎯 Анимация кнопки "Заказать" при наведении
+    document.querySelector(".order-btn").addEventListener("mouseenter", () => {
+        gsap.to(".order-btn", { scale: 1.1, duration: 0.3 });
+    });
+    document.querySelector(".order-btn").addEventListener("mouseleave", () => {
+        gsap.to(".order-btn", { scale: 1, duration: 0.3 });
+    });
+
+</script>
+
 
 </body>
 </html>
