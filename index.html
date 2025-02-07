@@ -708,6 +708,71 @@ body {
         stagger: 0.1 // Каждая буква появляется с задержкой
     });
 </script>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // 🎯 Исправляем анимацию категорий
+    gsap.utils.toArray(".catalog-item").forEach((item, index) => {
+        gsap.from(item, {
+            opacity: 0,
+            y: isMobile() ? 30 : 50, // Меньший сдвиг на мобилках
+            scale: 0.95, // Чуть меньше, чтобы не лагало
+            duration: isMobile() ? 0.8 : 1.2, // Быстрее для мобилок
+            ease: "power2.out",
+            delay: index * 0.08, // Чуть меньшая задержка
+            scrollTrigger: {
+                trigger: item,
+                start: isMobile() ? "top 85%" : "top 80%", // Срабатывает чуть раньше
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // 🎯 Оптимизируем заголовок
+    gsap.from(".content h1", { 
+        opacity: 0, 
+        y: isMobile() ? -40 : -80, // Меньший сдвиг на мобилках
+        scale: 0.9,
+        rotationX: 30,
+        duration: isMobile() ? 1 : 1.5, 
+        ease: "power4.out"
+    });
+
+    // 🎯 Анимация секции "Про нас" (ускоряем на мобилке)
+    gsap.from(".sushi-block", {
+        opacity: 0,
+        scale: 0.95,
+        duration: isMobile() ? 0.8 : 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".sushi-block",
+            start: isMobile() ? "top 80%" : "top 75%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    // 🎯 Анимация контактов, партнеров и программы лояльности (без задержки на мобилке)
+    gsap.utils.toArray(".info-item").forEach((item, index) => {
+        gsap.from(item, {
+            opacity: 0,
+            y: isMobile() ? 20 : 50,
+            scale: 0.95,
+            duration: isMobile() ? 0.8 : 1.2,
+            ease: "power3.out",
+            delay: isMobile() ? 0 : index * 0.15, // Убираем задержку на мобилках
+            scrollTrigger: {
+                trigger: item,
+                start: isMobile() ? "top 85%" : "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+</script>
 
 
 
