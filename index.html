@@ -386,21 +386,22 @@ body {
         width: 100%;
     }
 
-    .catalog-grid {
+     .catalog-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряд */
+        grid-template-columns: repeat(2, 1fr); /* Гарантируем 2 карточки в ряд */
         gap: 15px; /* Пространство между карточками */
-        width: 100%; /* Даем возможность растягиваться */
+        width: 100%; /* Полная ширина контейнера */
         max-width: none; /* Убираем ограничение ширины */
     }
 
     .catalog-item {
-        padding: 8px;
+        width: 100%; /* Равномерное распределение */
+        padding: 10px;
     }
 
-
     .catalog-item img {
-        width: 90%;
+        width: 100%; /* Подгоняем изображения */
+        height: auto;
     }
 
     .catalog-item h3 {
