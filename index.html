@@ -13,6 +13,10 @@
 
     <title>Моти Крым</title>
     <style>
+html {
+    scroll-behavior: smooth;
+}
+
         * {
             margin: 0;
             padding: 0;
@@ -457,6 +461,66 @@ body {
     background: #111; /* Темный фон */
 }
 
+.contact-title {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+    margin-bottom: 20px;
+    margin-top: 70px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+   flex-direction: column;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    justify-content: center;
+}
+
+.contact-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: black;
+}
+
+.contact-text a {
+    text-decoration: none;
+    color: #FAB52C;
+    font-weight: 600;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-item {
+        width: 100%;
+        max-width: 300px;
+    }
+}
 
     </style>
 </head>
@@ -470,19 +534,19 @@ body {
 
         <nav class="nav">
             <a href="index.html">О нас</a>
-            <a href="index.html">Вкусы</a>
+            <a href="#catalog-start">Вкусы</a>
             <a href="history.html">История моти</a>
             <a href="gallery.html">Галерея</a>
-            <a href="index.html">Контакты</a>
+            <a href="#contacts-section">Контакты</a>
         </nav>
         <div class="mobile-menu" id="mobileMenu">
             <a href="index.html">О нас</a>
-            <a href="index.html">Вкусы</a>
+            <a href="#catalog-start">Вкусы</a>
             <a href="history.html">История моти</a>
             <a href="gallery.html">Галерея</a>
-            <a href="index.html">Контакты</a>
+            <a href="#contacts-section">Контакты</a>
         </div>
-  <button class="order-btn">Заказать</button>
+  <button class="order-btn" onclick="window.location.href='https://t.me/YOUR_TELEGRAM_USERNAME';">Заказать</button>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </div>
     <div class="cloud-bg">
@@ -507,7 +571,7 @@ body {
 
 <!-- Кнопка теперь под заголовком -->
 <div class="catalog-button">
-    <a href="#" class="button">В КАТАЛОГ</a>
+    <a href="#catalog-start" class="button">В КАТАЛОГ</a>
 </div>
 
 
@@ -544,7 +608,7 @@ body {
         <div class="catalog-grid">
             <div class="catalog-item">
                 <img src="catalog/raf-halva.svg" alt="Раф-Халва">
-                <h3>Раф-Халва</h3>
+                <h3 id="catalog-start">Раф-Халва</h3>
                 <p>1 шт - 230 г</p>
                 <span class="price">590 ₽</span>
             </div>
@@ -627,6 +691,35 @@ body {
             </div>
         </div>
     </div>
+<h2 id="contacts-section" class="contact-title">Контакты</h2>
+<div class="contact-container">
+    <div class="contact-item">
+        
+        <p class="contact-text">Адрес: г. Симферополь, ул. Примерная, 10</p>
+    </div>
+
+    <div class="contact-item">
+        
+        <p class="contact-text">Телефон: <a href="tel:+79781234567">+7 (978) 123-45-67</a></p>
+    </div>
+
+    <div class="contact-item">
+        
+        <p class="contact-text">Telegram: <a href="https://t.me/yourtelegram" target="_blank">@yourtelegram</a></p>
+    </div>
+
+    <div class="contact-item">
+        
+        <p class="contact-text">VK: <a href="https://vk.com/yourvk" target="_blank">vk.com/yourvk</a></p>
+    </div>
+
+    <div class="contact-item">
+        
+        <p class="contact-text">Instagram: <a href="https://instagram.com/yourinstagram" target="_blank">@yourinstagram</a></p>
+    </div>
+</div>
+
+
 <script>
         function toggleMenu() {
             document.getElementById("mobileMenu").classList.toggle("active");
