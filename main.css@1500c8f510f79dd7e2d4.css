@@ -892,3 +892,11 @@ roll-title {
 .roll-title {
     perspective: 500px
 }
+
+@media (max-width: 768px) {
+    .intro__title h1 {
+        font-size: min(10vw, 4rem); /* Уменьшаем размер текста */
+        white-space: normal; /* Разрешаем перенос слов на маленьких экранах */
+        text-align: center; /* Центрируем текст */
+    }
+}
