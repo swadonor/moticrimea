@@ -260,7 +260,7 @@ canvas {
 }
 
 .intro__title h1 {
-    font-size: min(20vw,20rem);
+    font-size: min(10vw,10rem);
     font-family: "_NewYork";
     font-weight: normal;
     white-space: nowrap
